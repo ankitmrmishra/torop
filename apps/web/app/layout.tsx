@@ -1,15 +1,29 @@
-import { Geist, Geist_Mono, Inter } from "next/font/google"
-
 import "@workspace/ui/globals.css"
-import { ThemeProvider } from "@/components/theme-provider"
-import { cn } from "@workspace/ui/lib/utils";
+import { cn } from "@workspace/ui/lib/utils"
 
-const inter = Inter({subsets:['latin'],variable:'--font-sans'})
-
-const fontMono = Geist_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
-})
+export const metadata = {
+  title: "Torop - Product Analytics That Knows Your Data",
+  description:
+    "Understand every user journey with proactive insights, session replay, and developer-first analytics. Open source and built for scale.",
+  icons: {
+    icon: "/logo.svg",
+    shortcut: "/logo.svg",
+    apple: "/logo.svg",
+  },
+  openGraph: {
+    title: "Torop - Product Analytics That Knows Your Data",
+    description:
+      "Understand every user journey with proactive insights, session replay, and developer-first analytics. Open source and built for scale.",
+    images: ["/logo.svg"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Torop - Product Analytics That Knows Your Data",
+    description:
+      "Understand every user journey with proactive insights, session replay, and developer-first analytics. Open source and built for scale.",
+    images: ["/logo.svg"],
+  },
+}
 
 export default function RootLayout({
   children,
@@ -17,13 +31,9 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html
-      lang="en"
-      suppressHydrationWarning
-      className={cn("antialiased", fontMono.variable, "font-sans", inter.variable)}
-    >
-      <body>
-        <ThemeProvider>{children}</ThemeProvider>
+    <html lang="en" className="dark" suppressHydrationWarning>
+      <body className={cn("min-h-screen bg-background font-sans antialiased")}>
+        {children}
       </body>
     </html>
   )
