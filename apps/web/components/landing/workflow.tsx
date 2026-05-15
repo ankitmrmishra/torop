@@ -28,7 +28,7 @@ const steps = [
 
 export function Workflow() {
   return (
-    <section className="py-20 sm:py-24 lg:py-32 xl:py-44">
+    <section className="overflow-hidden py-20 sm:py-24 lg:py-32 xl:py-44">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 xl:gap-24">
           {/* LEFT: Text Content */}

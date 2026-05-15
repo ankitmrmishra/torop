@@ -63,7 +63,7 @@ export function HeroSection() {
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="relative block"
+            className="relative block overflow-hidden"
           >
             <DashboardVisual />
           </motion.div>
@@ -78,13 +78,13 @@ export function HeroSection() {
 
 function DashboardVisual() {
   return (
-    <div className="relative h-[600px]">
+    <div className="relative h-[600px] w-full">
       {/* Main Chart Card */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.4 }}
-        className="absolute top-0 right-16 left-0 h-64 rounded-xl border border-white/6 bg-[#0B0B0F]/80 p-6 shadow-2xl backdrop-blur-sm"
+        className="absolute top-0 right-0 left-0 h-64 rounded-xl border border-white/6 bg-[#0B0B0F]/80 p-6 shadow-2xl backdrop-blur-sm lg:right-16"
       >
         <div className="mb-4 flex items-center justify-between">
           <div className="h-2 w-24 rounded-full bg-white/10" />
@@ -109,7 +109,7 @@ function DashboardVisual() {
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6, delay: 0.6 }}
-        className="absolute top-48 right-0 w-48 rounded-xl border border-white/6 bg-[#101014]/90 p-5 shadow-xl backdrop-blur-sm"
+        className="absolute top-48 right-0 w-48 max-w-[calc(100%-1rem)] rounded-xl border border-white/6 bg-[#101014]/90 p-5 shadow-xl backdrop-blur-sm"
       >
         <div className="mb-2 text-xs tracking-wider text-[#A1A1AA] uppercase">
           Active Users

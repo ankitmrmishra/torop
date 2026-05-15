@@ -28,12 +28,12 @@ export function DeveloperAPI() {
   }
 
   return (
-    <section className="py-20 sm:py-24 lg:py-32 xl:py-44">
+    <section className="overflow-hidden py-20 sm:py-24 lg:py-32 xl:py-44">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-16 xl:gap-24">
           {/* LEFT: Text Content */}
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
+            initial={{ opacity: 0, x: 0 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
@@ -77,7 +77,7 @@ export function DeveloperAPI() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative"
+            className="relative min-w-0"
           >
             <div className="overflow-hidden rounded-lg border border-white/6 bg-[#0B0B0F] shadow-2xl sm:rounded-xl">
               {/* Terminal Header */}
@@ -104,8 +104,8 @@ export function DeveloperAPI() {
 
               {/* Code Content */}
               <div className="overflow-x-auto p-4 sm:p-6">
-                <pre className="font-mono text-xs leading-relaxed sm:text-sm">
-                  <code>
+                <pre className="min-w-0 font-mono text-xs leading-relaxed sm:text-sm">
+                  <code className="block">
                     <span className="text-[#A1A1AA]">// Track an event</span>
                     {"\n"}
                     <span className="text-[#F5F5F5]">analytics.</span>

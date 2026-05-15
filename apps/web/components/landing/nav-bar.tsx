@@ -107,7 +107,7 @@ export function NavBar() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         className={cn(
-          "fixed top-0 right-0 left-0 z-50 border-b border-white/6 bg-[#0B0B0F]/80 backdrop-blur-xl transition-all duration-300 lg:hidden",
+          "fixed top-0 right-0 left-0 z-50 max-w-screen border-b border-white/6 bg-[#0B0B0F]/80 backdrop-blur-xl transition-all duration-300 lg:hidden",
           isScrolled && "bg-[#0B0B0F]/90 shadow-lg shadow-black/20"
         )}
       >
@@ -169,11 +169,11 @@ export function NavBar() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-              className="fixed top-0 right-0 bottom-0 z-50 w-[85vw] max-w-sm border-l border-white/6 bg-[#0B0B0F] shadow-2xl lg:hidden"
+              className="fixed top-0 right-0 bottom-0 z-50 w-[80vw] max-w-sm border-l border-white/6 bg-[#0B0B0F] shadow-2xl lg:hidden"
             >
               <div className="flex h-full flex-col">
                 {/* Header */}
-                <div className="flex items-center justify-between border-b border-white/6 px-6 py-4">
+                <div className="flex items-center justify-between border-b border-white/6 px-4 py-4 sm:px-6">
                   <div className="flex items-center gap-2">
                     <Image
                       src="/logo.svg"
@@ -195,8 +195,8 @@ export function NavBar() {
                 </div>
 
                 {/* Navigation Links */}
-                <div className="flex-1 overflow-y-auto px-6 py-8">
-                  <nav className="space-y-2">
+                <div className="flex-1 overflow-y-auto px-4 py-6 sm:px-6 sm:py-8">
+                  <nav className="space-y-3">
                     {navLinks.map((link, i) => (
                       <motion.a
                         key={link.name}
@@ -205,7 +205,7 @@ export function NavBar() {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.3, delay: i * 0.1 }}
                         onClick={() => setIsMobileMenuOpen(false)}
-                        className="block rounded-lg border border-white/6 bg-[#101014] px-6 py-4 font-medium text-[#F5F5F5] transition-all hover:border-white/10 hover:bg-white/5"
+                        className="block rounded-lg border border-white/6 bg-[#101014] px-5 py-4 font-medium text-[#F5F5F5] transition-all hover:border-white/10 hover:bg-white/5 sm:px-6"
                       >
                         {link.name}
                       </motion.a>
@@ -214,7 +214,7 @@ export function NavBar() {
                 </div>
 
                 {/* Footer CTA */}
-                <div className="border-t border-white/6 p-6">
+                <div className="border-t border-white/6 p-4 sm:p-6">
                   <Button
                     size="lg"
                     className="h-12 w-full rounded-lg bg-[#6366F1] font-medium text-white transition-all hover:bg-[#5558E3] hover:shadow-xl hover:shadow-[#6366F1]/20"

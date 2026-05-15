@@ -62,7 +62,7 @@ export function CodeDemo() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="relative overflow-hidden rounded-2xl border border-white/5 bg-[#0A0A0B] p-6 shadow-[0_0_30px_-10px_rgba(99,102,241,0.3)]"
+          className="relative min-w-0 overflow-hidden rounded-2xl border border-white/5 bg-[#0A0A0B] p-6 shadow-[0_0_30px_-10px_rgba(99,102,241,0.3)]"
         >
           {/* Terminal Header */}
           <div className="mb-4 flex items-center gap-2">
@@ -73,8 +73,8 @@ export function CodeDemo() {
           </div>
 
           {/* Code Content */}
-          <pre className="overflow-x-auto text-sm">
-            <code className="font-mono text-zinc-300">
+          <pre className="min-w-0 overflow-x-auto text-sm">
+            <code className="block font-mono text-zinc-300">
               {displayedText}
               <span className="animate-pulse">|</span>
             </code>
