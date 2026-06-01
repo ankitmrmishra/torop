@@ -17,36 +17,40 @@
     "db:drop": "drizzle-kit drop"
   },
   "dependencies": {
+    "@neondatabase/serverless": "^1.1.0",
     "@radix-ui/react-slot": "^1.2.4",
     "@types/better-sqlite3": "^7.6.13",
+    "@upstash/ratelimit": "^2.0.8",
+    "@upstash/redis": "^1.38.0",
+    "bcryptjs": "^3.0.3",
     "better-auth": "^1.6.11",
     "better-sqlite3": "^12.10.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "dotenv": "^17.4.2",
+    "drizzle-orm": "^0.45.2",
     "eslint-config-next": "^16.2.6",
     "framer-motion": "^12.38.0",
     "gsap": "^3.15.0",
     "lucide-react": "^1.14.0",
     "next": "16.1.6",
     "next-themes": "^0.4.6",
+    "postgres": "^3.4.9",
     "prettier": "^3.8.3",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "tailwind-merge": "^3.6.0",
-    "tailwindcss": "^4.3.0",
-    "@neondatabase/serverless": "^1.1.0",
-    "dotenv": "^17.4.2",
-    "drizzle-orm": "^0.45.2",
-    "postgres": "^3.4.9"
+    "tailwindcss": "^4.3.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.5",
     "@tailwindcss/postcss": "^4.1.18",
+    "@types/bcryptjs": "^3.0.0",
     "@types/node": "^25.1.0",
     "@types/react": "^19.2.10",
     "@types/react-dom": "^19.2.3",
+    "drizzle-kit": "^0.31.10",
     "eslint": "^9.39.2",
-    "typescript": "^6.0.3",
-    "drizzle-kit": "^0.31.10"
+    "typescript": "^6.0.3"
   }
 }
