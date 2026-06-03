@@ -1,5 +1,10 @@
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import { Raleway, Oxanium } from "next/font/google";
+
+const oxaniumHeading = Oxanium({subsets:['latin'],variable:'--font-heading'});
+
+const raleway = Raleway({subsets:['latin'],variable:'--font-sans'});
 
 export const metadata = {
   title: "Torop - Product Analytics That Knows Your Data",
@@ -31,8 +36,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>
-      <body className={cn("min-h-screen bg-background font-sans antialiased")}>
+    <html lang="en" className={cn("dark", "font-sans", raleway.variable, oxaniumHeading.variable)} suppressHydrationWarning>
+      <body className={cn("min-h-screen bg-background font-sans antialiased dark")}>
         {children}
       </body>
     </html>

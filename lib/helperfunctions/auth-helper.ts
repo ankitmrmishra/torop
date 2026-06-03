@@ -1,6 +1,6 @@
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
-import { auth } from "@/lib/auth"; // adjust this import to your Better Auth instance
+import { auth } from "@/lib/auth"; 
 
 export async function getCurrentUser() {
   const session = await auth.api.getSession({
