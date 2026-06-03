@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   Table,
   TableBody,
@@ -151,48 +152,61 @@ export function MembersTab({ members, userRole }: MembersTabProps) {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {members.map((member) => (
-                <TableRow key={member.id}>
-                  <TableCell>
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white font-medium text-sm">
-                        {member.avatar}
+              {members.map((member) => {
+                const initials = member.name
+                  .split(" ")
+                  .map((n) => n[0])
+                  .join("")
+                  .toUpperCase()
+                  .slice(0, 2);
+
+                return (
+                  <TableRow key={member.id}>
+                    <TableCell>
+                      <div className="flex items-center gap-3">
+                        <Avatar className="h-10 w-10">
+                          <AvatarImage
+                            src={member.avatarUrl}
+                            alt={member.name}
+                          />
+                          <AvatarFallback className="bg-primary text-primary-foreground">
+                            {initials}
+                          </AvatarFallback>
+                        </Avatar>
+                        <span className="font-medium">{member.name}</span>
                       </div>
-                      <span className="font-medium text-slate-900">
-                        {member.name}
-                      </span>
-                    </div>
-                  </TableCell>
-                  <TableCell className="text-slate-600">
-                    {member.email}
-                  </TableCell>
-                  <TableCell>
-                    <Badge variant={getRoleBadgeVariant(member.role)}>
-                      {member.role}
-                    </Badge>
-                  </TableCell>
-                  <TableCell className="text-slate-600">
-                    {formatDate(member.joinedAt.toString())}
-                  </TableCell>
-                  <TableCell className="text-right">
-                    {userRole === "owner" && (
-                      <DropdownMenu>
-                        <DropdownMenuTrigger asChild>
-                          <Button variant="ghost" size="sm">
-                            <MoreVertical className="w-4 h-4" />
-                          </Button>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent align="end">
-                          <DropdownMenuItem>Change role</DropdownMenuItem>
-                          <DropdownMenuItem className="text-red-600">
-                            Remove
-                          </DropdownMenuItem>
-                        </DropdownMenuContent>
-                      </DropdownMenu>
-                    )}
-                  </TableCell>
-                </TableRow>
-              ))}
+                    </TableCell>
+                    <TableCell className="text-muted-foreground">
+                      {member.email}
+                    </TableCell>
+                    <TableCell>
+                      <Badge variant={getRoleBadgeVariant(member.role)}>
+                        {member.role}
+                      </Badge>
+                    </TableCell>
+                    <TableCell className="text-muted-foreground">
+                      {formatDate(member.joinedAt.toString())}
+                    </TableCell>
+                    <TableCell className="text-right">
+                      {userRole === "owner" && (
+                        <DropdownMenu>
+                          <DropdownMenuTrigger asChild>
+                            <Button variant="ghost" size="sm">
+                              <MoreVertical className="w-4 h-4" />
+                            </Button>
+                          </DropdownMenuTrigger>
+                          <DropdownMenuContent align="end">
+                            <DropdownMenuItem>Change role</DropdownMenuItem>
+                            <DropdownMenuItem className="text-red-600">
+                              Remove
+                            </DropdownMenuItem>
+                          </DropdownMenuContent>
+                        </DropdownMenu>
+                      )}
+                    </TableCell>
+                  </TableRow>
+                );
+              })}
             </TableBody>
           </Table>
         </CardContent>

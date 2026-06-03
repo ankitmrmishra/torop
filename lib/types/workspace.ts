@@ -6,6 +6,7 @@ export interface WorkspaceMember {
   name: string;
   email: string;
   avatar: string;
+  avatarUrl?: string;
   role: "owner" | "member";
   joinedAt: Date | string;
 }

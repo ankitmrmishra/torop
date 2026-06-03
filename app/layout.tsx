@@ -1,10 +1,14 @@
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Raleway, Oxanium } from "next/font/google";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
-const oxaniumHeading = Oxanium({subsets:['latin'],variable:'--font-heading'});
+const oxaniumHeading = Oxanium({
+  subsets: ["latin"],
+  variable: "--font-heading",
+});
 
-const raleway = Raleway({subsets:['latin'],variable:'--font-sans'});
+const raleway = Raleway({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata = {
   title: "Torop - Product Analytics That Knows Your Data",
@@ -36,9 +40,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cn("dark", "font-sans", raleway.variable, oxaniumHeading.variable)} suppressHydrationWarning>
-      <body className={cn("min-h-screen bg-background font-sans antialiased dark")}>
-        {children}
+    <html
+      lang="en"
+      className={cn(
+        "dark",
+        "font-sans",
+        raleway.variable,
+        oxaniumHeading.variable,
+      )}
+      suppressHydrationWarning
+    >
+      <body
+        className={cn("min-h-screen bg-background font-sans antialiased dark")}
+      >
+        <TooltipProvider>{children}</TooltipProvider>
       </body>
     </html>
   );

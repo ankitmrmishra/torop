@@ -7,7 +7,6 @@ import { NextRequest, NextResponse } from "next/server";
 export async function GET(req: NextRequest) {
   //first we will check if the user is authenticated or not we are using the helper fucntion here, it will redirect to /login if user is not authenticated.
   const user = await getCurrentUser();
-  
 
   // get the workspace for the user
   const workspace = await getUserWorkspace(user.id);
@@ -19,7 +18,7 @@ export async function GET(req: NextRequest) {
   return NextResponse.json({ workspace }, { status: 200 });
 }
 
-export async function POST(req: NextRequest, res: NextResponse) {
+export async function POST(req: NextRequest) {
   //first we will check if the user is authenticated or not we are using the helper fucntion here, it will redirect to /login if user is not authenticated.
   const user = await getCurrentUser();
 
