@@ -5,6 +5,7 @@ import {
   workspaces,
   invitaions,
 } from "@/db/schema/workspace";
+import { user } from "@/db/schema/auth";
 import { eq, and } from "drizzle-orm";
 import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
@@ -84,23 +85,32 @@ export async function POST(
       );
     }
 
-    // Check if user is already a member
-    const existingMembership = await db
+    // Check if a user with this email exists and is already a member
+    const existingUser = await db
       .select()
-      .from(workspaceMembers)
-      .where(
-        and(
-          eq(workspaceMembers.workspaceId, workspaceid),
-          eq(workspaceMembers.userId, email),
-        ),
-      )
+      .from(user)
+      .where(eq(user.email, email))
       .limit(1);
 
-    if (existingMembership.length > 0) {
-      return NextResponse.json(
-        { error: "User is already a member of this workspace" },
-        { status: 400 },
-      );
+    if (existingUser.length > 0) {
+      // User exists, check if they're already a member of this workspace
+      const existingMembership = await db
+        .select()
+        .from(workspaceMembers)
+        .where(
+          and(
+            eq(workspaceMembers.workspaceId, workspaceid),
+            eq(workspaceMembers.userId, existingUser[0].id),
+          ),
+        )
+        .limit(1);
+
+      if (existingMembership.length > 0) {
+        return NextResponse.json(
+          { error: "User is already a member of this workspace" },
+          { status: 400 },
+        );
+      }
     }
 
     // Check for existing pending invitation
