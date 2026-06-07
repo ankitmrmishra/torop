@@ -3,12 +3,11 @@ import {
   text,
   timestamp,
   uuid,
-    uniqueIndex,
-    index,
-  jsonb
+  uniqueIndex,
+  index,
+  jsonb,
 } from "drizzle-orm/pg-core";
 import { user } from "./auth";
-
 
 export const workspaces = pgTable("workspace", {
   id: uuid("id").defaultRandom().primaryKey(),
@@ -69,5 +68,53 @@ export const events = pgTable(
       table.eventName,
       table.timestamp,
     ),
+  }),
+);
+
+export const invitaions = pgTable(
+  "inviations",
+  {
+    id: uuid("id").defaultRandom().primaryKey(),
+    workspaceId: uuid("workspace_id")
+      .notNull()
+      .references(() => workspaces.id, { onDelete: "cascade" }),
+    email: text("email").notNull(),
+
+    role: text("role", {
+      enum: ["owner", "member"],
+    }).notNull(),
+
+    token: text("token").notNull().unique(),
+
+    status: text("status", {
+      enum: ["pending", "accepted", "expired", "revoked"],
+    })
+      .notNull()
+      .default("pending"),
+
+    expiresAt: timestamp("expires_at", {
+      withTimezone: true,
+    }).notNull(),
+
+    createdAt: timestamp("created_at", {
+      withTimezone: true,
+    })
+      .notNull()
+      .defaultNow(),
+
+    acceptedAt: timestamp("accepted_at", {
+      withTimezone: true,
+    }),
+
+    invitedBy: text("invited_by")
+      .notNull()
+      .references(() => user.id, { onDelete: "cascade" }),
+  },
+  (table) => ({
+    workspaceIdx: index("workspace_invitation_workspace_idx").on(
+      table.workspaceId,
+    ),
+    emailIdx: index("workspace_invitation_email_idx").on(table.email),
+    tokenIdx: index("workspace_invitation_token_idx").on(table.token),
   }),
 );

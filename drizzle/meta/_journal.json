@@ -22,6 +22,20 @@
       "when": 1780296029654,
       "tag": "0002_safe_robbie_robertson",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1780587103154,
+      "tag": "0003_strange_black_queen",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1780817940055,
+      "tag": "0004_left_frightful_four",
+      "breakpoints": true
     }
   ]
 }

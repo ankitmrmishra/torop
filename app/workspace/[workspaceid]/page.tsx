@@ -131,6 +131,7 @@ export default function WorkspacePage({ params }: WorkspacePageProps) {
             <MembersTab
               members={workspace.members}
               userRole={workspace.workspace.userRole}
+              workspaceId={workspaceid}
             />
           )}
         </div>
