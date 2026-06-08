@@ -1,6 +1,6 @@
 import "./globals.css";
 import { cn } from "@/lib/utils";
-import { Raleway, Oxanium } from "next/font/google";
+import { Raleway, Oxanium, Inter } from "next/font/google";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
 const oxaniumHeading = Oxanium({
@@ -8,7 +8,7 @@ const oxaniumHeading = Oxanium({
   variable: "--font-heading",
 });
 
-const raleway = Raleway({ subsets: ["latin"], variable: "--font-sans" });
+const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 
 export const metadata = {
   title: "Torop - Product Analytics That Knows Your Data",
@@ -45,7 +45,7 @@ export default function RootLayout({
       className={cn(
         "dark",
         "font-sans",
-        raleway.variable,
+        inter.variable,
         oxaniumHeading.variable,
       )}
       suppressHydrationWarning

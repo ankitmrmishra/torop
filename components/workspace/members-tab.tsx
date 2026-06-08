@@ -201,10 +201,10 @@ export function MembersTab({
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-3xl font-bold text-slate-900 dark:text-white">
+          <h2 className="text-3xl font-bold text-foreground dark:text-white">
             Members
           </h2>
-          <p className="text-slate-600 dark:text-slate-400 mt-1">
+          <p className="text-muted-foreground dark:text-muted-foreground mt-1">
             Manage your workspace members and permissions
           </p>
         </div>
@@ -221,7 +221,7 @@ export function MembersTab({
             }}
           >
             <DialogTrigger asChild>
-              <Button className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700">
+              <Button className="bg-primary">
                 <UserPlus className="w-4 h-4 mr-2" />
                 Invite Member
               </Button>
@@ -280,7 +280,7 @@ export function MembersTab({
                           <SelectItem value="owner">Owner</SelectItem>
                         </SelectContent>
                       </Select>
-                      <p className="text-xs text-slate-500 dark:text-slate-400">
+                      <p className="text-xs text-slate-500 dark:text-muted-foreground">
                         Members can view and contribute. Owners have full access
                         including inviting others.
                       </p>

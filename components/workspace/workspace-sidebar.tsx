@@ -70,7 +70,7 @@ export function WorkspaceSidebar({
               className={`w-full justify-start gap-3 ${
                 isActive
                   ? "bg-slate-800 text-white hover:bg-slate-800"
-                  : "text-slate-400 hover:text-white hover:bg-slate-800"
+                  : "text-muted-foreground hover:text-white hover:bg-slate-800"
               }`}
               onClick={() => onTabChange(item.id)}
             >
@@ -87,7 +87,7 @@ export function WorkspaceSidebar({
           <DropdownMenuTrigger asChild>
             <Button
               variant="ghost"
-              className="w-full justify-start gap-3 text-slate-400 hover:text-white hover:bg-slate-800"
+              className="w-full justify-start gap-3 text-muted-foreground hover:text-white hover:bg-slate-800"
             >
               <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white text-sm font-medium">
                 {user.avatar}
@@ -96,7 +96,7 @@ export function WorkspaceSidebar({
                 <div className="text-sm font-medium text-white truncate">
                   {user.name}
                 </div>
-                <div className="text-xs text-slate-400 truncate">
+                <div className="text-xs text-muted-foreground truncate">
                   {user.email}
                 </div>
               </div>

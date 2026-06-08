@@ -79,8 +79,8 @@ export function SettingsTab({
     <div className="space-y-6 max-w-3xl">
       {/* Header */}
       <div>
-        <h2 className="text-3xl font-bold text-slate-900">Settings</h2>
-        <p className="text-slate-600 mt-1">
+        <h2 className="text-3xl font-bold text-foreground">Settings</h2>
+        <p className="text-muted-foreground mt-1">
           Manage your workspace settings and preferences
         </p>
       </div>
@@ -95,7 +95,7 @@ export function SettingsTab({
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="space-y-2">
-            <label className="text-sm font-medium text-slate-900">
+            <label className="text-sm font-medium text-foreground">
               Workspace Name
             </label>
             <Input
@@ -123,7 +123,7 @@ export function SettingsTab({
           {apiKey ? (
             <>
               <div className="space-y-2">
-                <label className="text-sm font-medium text-slate-900">
+                <label className="text-sm font-medium text-foreground">
                   Your API Key
                 </label>
                 <div className="flex gap-2">
@@ -170,7 +170,7 @@ export function SettingsTab({
             </>
           ) : (
             <div className="space-y-4">
-              <p className="text-sm text-slate-600">
+              <p className="text-sm text-muted-foreground">
                 Generate an API key to start sending events programmatically.
               </p>
               {userRole === "owner" && (
@@ -198,11 +198,11 @@ export function SettingsTab({
               <div className="space-y-1">
                 <div className="flex items-center gap-2">
                   <AlertTriangle className="w-4 h-4 text-red-600" />
-                  <h3 className="font-medium text-slate-900">
+                  <h3 className="font-medium text-foreground">
                     Delete Workspace
                   </h3>
                 </div>
-                <p className="text-sm text-slate-600">
+                <p className="text-sm text-muted-foreground">
                   Once deleted, all data will be permanently removed.
                 </p>
               </div>
@@ -223,7 +223,7 @@ export function SettingsTab({
                   </DialogHeader>
                   <div className="space-y-4 py-4">
                     <div className="space-y-2">
-                      <label className="text-sm font-medium text-slate-900">
+                      <label className="text-sm font-medium text-foreground">
                         Type <span className="font-mono">{workspace.name}</span>{" "}
                         to confirm
                       </label>

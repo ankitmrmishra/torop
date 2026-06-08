@@ -52,11 +52,11 @@ export function OverviewTab({
           <CardContent className="pt-6 pb-6 text-center space-y-6">
             <div className="flex justify-center">
               <div className="w-20 h-20 rounded-full bg-slate-100 flex items-center justify-center">
-                <BarChart3 className="w-10 h-10 text-slate-400" />
+                <BarChart3 className="w-10 h-10 text-muted-foreground" />
               </div>
             </div>
             <div className="space-y-2">
-              <h3 className="text-xl font-semibold text-slate-900">
+              <h3 className="text-xl font-semibold text-foreground">
                 No events yet
               </h3>
               <p className="text-slate-600">
@@ -105,7 +105,7 @@ export function OverviewTab({
     <div className="space-y-6">
       {/* Header */}
       <div>
-        <h2 className="text-3xl font-bold text-slate-900">Overview</h2>
+        <h2 className="text-3xl font-bold text-foreground">Overview</h2>
         <p className="text-slate-600 mt-1">
           Your workspace analytics at a glance
         </p>
@@ -125,10 +125,10 @@ export function OverviewTab({
                 <CardTitle className="text-sm font-medium text-slate-600">
                   {stat.title}
                 </CardTitle>
-                <Icon className="w-4 h-4 text-slate-400" />
+                <Icon className="w-4 h-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold text-slate-900">
+                <div className="text-2xl font-bold text-foreground">
                   {stat.value}
                 </div>
                 <div className={`flex items-center gap-1 mt-1 ${trendColor}`}>
@@ -167,7 +167,7 @@ export function OverviewTab({
                 <p className="text-sm text-slate-500">
                   Chart Placeholder – Recharts will be here
                 </p>
-                <p className="text-xs text-slate-400">Line chart view</p>
+                <p className="text-xs text-muted-foreground">Line chart view</p>
               </div>
             </div>
           </CardContent>
@@ -185,7 +185,7 @@ export function OverviewTab({
                 <p className="text-sm text-slate-500">
                   Chart Placeholder – Recharts will be here
                 </p>
-                <p className="text-xs text-slate-400">Bar chart view</p>
+                <p className="text-xs text-muted-foreground">Bar chart view</p>
               </div>
             </div>
           </CardContent>
@@ -212,7 +212,7 @@ export function OverviewTab({
                     <div className="flex items-center gap-3">
                       <div className="w-2 h-2 rounded-full bg-blue-600" />
                       <div>
-                        <div className="text-sm font-medium text-slate-900">
+                        <div className="text-sm font-medium text-foreground">
                           {event.eventName}
                         </div>
                         <div className="text-xs text-slate-500">

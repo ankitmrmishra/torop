@@ -51,7 +51,7 @@ export function EventsTab({ events, totalCount }: EventsTabProps) {
     <div className="space-y-6">
       {/* Header */}
       <div>
-        <h2 className="text-3xl font-bold text-slate-900">Events</h2>
+        <h2 className="text-3xl font-bold text-foreground">Events</h2>
         <p className="text-slate-600 mt-1">
           Track and analyze all events in your workspace
         </p>
@@ -63,7 +63,7 @@ export function EventsTab({ events, totalCount }: EventsTabProps) {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             {/* Search */}
             <div className="md:col-span-2 relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 w-4 h-4" />
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
               <Input
                 placeholder="Search events..."
                 className="pl-10"
@@ -74,7 +74,7 @@ export function EventsTab({ events, totalCount }: EventsTabProps) {
 
             {/* Date Range */}
             <div className="relative">
-              <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 w-4 h-4 pointer-events-none" />
+              <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4 pointer-events-none" />
               <Input
                 type="date"
                 placeholder="Start date"
@@ -84,7 +84,7 @@ export function EventsTab({ events, totalCount }: EventsTabProps) {
               />
             </div>
             <div className="relative">
-              <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 w-4 h-4 pointer-events-none" />
+              <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4 pointer-events-none" />
               <Input
                 type="date"
                 placeholder="End date"
@@ -119,7 +119,7 @@ export function EventsTab({ events, totalCount }: EventsTabProps) {
                     <TableCell>
                       <div className="flex items-center gap-2">
                         <div className="w-2 h-2 rounded-full bg-blue-600" />
-                        <span className="font-medium text-slate-900">
+                        <span className="font-medium text-foreground">
                           {event.eventName}
                         </span>
                       </div>
